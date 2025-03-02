@@ -40,6 +40,9 @@ prompts = {
 }
 
 # Flask Routes
+@app.route("/")
+def home():
+    return jsonify({"message": "Welcome to ATS Analyzer API! Use /analyze to process resumes."})
 @app.route("/analyze", methods=["POST"])
 def analyze():
     resume_file = request.files.get("resume")
